@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block jumptosearch %}
+<li><a href="/">Lista wszystki sal</a></li>
+{% endblock %}
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <h2>Nazwa sali: {{ room.name }}</h2>
+    <p>Pojemność sali: {{ room.capacity }}</p>
+    <p>Dostępność rzutnika:
+      {% if room.has_projector %}
+        <span style="color:green;">&#9745;</span>
+      {% else %}
+        <span style="color:red;">&#9746;</span>
+      {% endif %}
+    </p>
+    <h3>Aktualne rezerwacje</h3>
+    <ul class="list-group">
+      {% for reservation in reservations %}
+        <li class="list-group-item">
+          <h4>{{ reservation.date }}</h4>
+          <p>{{ reservation.comment }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

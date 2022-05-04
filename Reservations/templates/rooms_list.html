@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block jumptosearch %}
+<li><a href="#card">Wyszukaj salę</a></li>
+<li><a href="/room/new/">Dodawanie sali</a></li>
+{% endblock %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr class="headers">
+      <th scope="col" class="col">#</th>
+      <th scope="col" class="col">Nazwa</th>
+      <th scope="col" class="col">Pojemność</th>
+      <th scope="col" class="col">Dostępność rzutnika</th>
+      <th scope="col" class="col" colspan="3">Działania</th>
+      <th scope="col" class="col">Dostępność dziś</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for room in rooms %}
+    <tr class="rows">
+      <th scope="row" class="col">{{ room.id }}</th>
+      <td class="col">
+        <a href="/room/{{ room.id }}/">{{ room.name }}</a>
+      </td>
+      <td class="col">{{ room.capacity }}</td>
+      {% if room.has_projector %}
+        <td class="col" style="color:green;">&#9745;</td>
+      {% else %}
+        <td class="col" style="color:red;">&#9746;</td>
+      {% endif %}
+      <td class="col">
+        <a href="/room/edit/{{ room.id }}/">edytuj</a>
+      </td>
+      <td class="col">
+        <a href="/room/delete/{{ room.id }}/">usuń</a>
+      </td>
+      <td class="col">
+        <a href="/room/reserve/{{ room.id }}/">zarezerwuj</a>
+      </td>
+       {% if room.reserved %}
+        <td class="col-2" style="color:red;">Zarezerwowana</td>
+      {% else %}
+        <td class="col-2" style="color:green;">Dostępna</td>
+      {% endif %}
+    </tr>
+    {% empty %}
+      <tr><td colspan="6">Brak dostępnych sal</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div class="pagination">
+{% if rooms.has_previous %}
+  <a href="?page=1">&laquo Pierwsza</a>
+  <a href="?page={{rooms.previous_page_number}}">Poprzednia</a>
+{% endif %}
+Strona {{rooms.number}} z {{rooms.paginator.num_pages}}
+{% if rooms.has_next %}
+  <a href="?page={{rooms.next_page_number}}">Następna</a>
+  <a href="?page={{rooms.paginator.num_pages}}">&raquo Ostatnia</a>
+{% endif %}
+</div>
+<div class="card" id="card">
+  <div class="card-body">
+    <form action="/search" method="GET">
+      <div class="form-group">
+        <label for="room-name">Nazwa sali</label>
+        <input type="text" class="form-control" id="room-name" aria-describedby="room-name-help" placeholder="Nazwa sali" name="room-name">
+      </div>
+      <div class="form-group">
+        <label for="capacity">Minimalna pojemność sali</label>
+        <input type="number" step="1" class="form-control" id="capacity" placeholder="10" name="capacity">
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="projector" id="projector">
+        <label class="form-check-label" for="projector">Dostępność rzutnika</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Szukaj</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

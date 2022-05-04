@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block jumptosearch %}
+<li><a href="/">Lista wszystki sal</a></li>
+{% endblock %}
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <div class="title"> Edytuj salę</div>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <div class = "input-box">
+        <span class="details" >Nazwa sali</span>
+        <input type="text" placeholder="Nazwa sali" value="{{room.name}}" name="room-name">
+        </div>
+      </div>
+      <div class="form-group">
+        <span class="details" >Pojemność</span>
+        <input type="number" step="1" placeholder="0" value="{{room.capacity}}" name="capacity">
+      </div>
+      <div class="form-group">
+        <span class="details" >Dostępność rzutnika</span>
+        <input type="checkbox" {% if room.has_projector %} checked {% endif %} name="projector">
+      </div>
+      <button type="submit" class="btn btn-primary">Edytuj salę</button>
+    </form>
+  </div>
+</div>
+{% if error %}
+<div class="alert">
+  {{error}}
+</div>
+{% endif %}
+{% endblock %}
