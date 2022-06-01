@@ -18,12 +18,20 @@ from django.urls import path
 from Reservations.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', RoomListView.as_view(), name="room-list"),
-    path('room/new/', AddRoomView.as_view(), name="add-room"),
-    path('room/delete/<int:room_id>/', DeleteRoomView.as_view(), name="delete-room"),
-    path('room/edit/<int:room_id>/', EditRoomView.as_view(), name='edit-room'),
-    path('room/reserve/<int:room_id>/', RoomReservationView.as_view(), name="reserve-room"),
-    path('room/<int:room_id>/', RoomDetailsView.as_view(), name="room"),
-    path('search/', SearchView.as_view(), name="room-search"),
+    path("admin/", admin.site.urls),
+    path("", RoomListView.as_view(), name="room-list"),
+    path("room/new/", AddRoomView.as_view(), name="add-room"),
+    path(
+        "room/delete/<int:room_id>/",
+        DeleteRoomView.as_view(),
+        name="delete-room",
+    ),
+    path("room/edit/<int:room_id>/", EditRoomView.as_view(), name="edit-room"),
+    path(
+        "room/reserve/<int:room_id>/",
+        RoomReservationView.as_view(),
+        name="reserve-room",
+    ),
+    path("room/<int:room_id>/", RoomDetailsView.as_view(), name="room"),
+    path("search/", SearchView.as_view(), name="room-search"),
 ]
