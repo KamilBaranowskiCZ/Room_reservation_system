@@ -58,9 +58,9 @@ class EditRoomView(View):
         capacity = int(capacity) if capacity else 0
         projector = request.POST.get("projector") == "on"
         if not name:
-            return render(request, "add_conference_room.html", context={"error": "Podaj nazwę sali"})
+            return render(request, "edit_room.html", context={"error": "Podaj nazwę sali"})
         if capacity <= 0:
-            return render(request, "add_conference_room.html", context={"error": "Podaj dodatnią pojemność sali"})
+            return render(request, "edit_room.html", context={"error": "Podaj dodatnią pojemność sali"})
         try:
             room.name = name
             room.capacity = capacity
