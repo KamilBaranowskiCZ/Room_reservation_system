@@ -32,6 +32,6 @@ urlpatterns = [
         RoomReservationView.as_view(),
         name="reserve-room",
     ),
-    path("room/<int:room_id>/", RoomDetailsView.as_view(), name="room"),
+    path("room/<int:room_id>/", RoomDetailsView.as_view(), name="room-details"),
     path("search/", SearchView.as_view(), name="room-search"),
 ]

@@ -7,11 +7,6 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 
-
-class Home(TemplateView):
-    template_name = "base.html"
-
-
 class RoomListView(View):
     def get(self, request):
         rooms_list = ConferenceRoom.objects.all()
@@ -35,7 +30,7 @@ class AddRoomView(View):
         return render(request, "add_conference_room.html")
 
     def post(self, request):
-        name = request.POST.get("room-name")
+        name = request.POST.get("room_name")
         capacity = request.POST.get("capacity")
         capacity = int(capacity) if capacity else 0
         projector = request.POST.get("projector") == "on"
