@@ -5,6 +5,9 @@ class ConferenceRoom(models.Model):
     capacity = models.PositiveIntegerField()
     has_projector = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ['-id']
+
 class Reservation(models.Model):
     room_id = models.ForeignKey(ConferenceRoom, on_delete=models.CASCADE)
     date = models.DateField()
