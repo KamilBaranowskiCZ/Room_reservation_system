@@ -73,7 +73,7 @@ class EditRoomView(View):
 
     def post(self, request, room_id):
         room = ConferenceRoom.objects.get(id=room_id)
-        name = request.POST.get("room-name")
+        name = request.POST.get("room_name")
         capacity = request.POST.get("capacity")
         capacity = int(capacity) if capacity else 0
         projector = request.POST.get("projector") == "on"
