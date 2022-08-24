@@ -25,9 +25,9 @@
       </td>
       <td class="col">{{ room.capacity }}</td>
       {% if room.has_projector %}
-        <td class="col" style="color:green;">&#9745;</td>
+      <td class="col" style="color:green;">&#9745;</td>
       {% else %}
-        <td class="col" style="color:red;">&#9746;</td>
+      <td class="col" style="color:red;">&#9746;</td>
       {% endif %}
       <td class="col">
         <a href="/room/edit/{{ room.id }}/">edytuj</a>
@@ -38,34 +38,37 @@
       <td class="col">
         <a href="/room/reserve/{{ room.id }}/">zarezerwuj</a>
       </td>
-       {% if room.reserved %}
-        <td class="col-2" style="color:red;">Zarezerwowana</td>
+      {% if room.reserved %}
+      <td class="col-2" style="color:red;">Zarezerwowana</td>
       {% else %}
-        <td class="col-2" style="color:green;">Dostępna</td>
+      <td class="col-2" style="color:green;">Dostępna</td>
       {% endif %}
     </tr>
     {% empty %}
-      <tr><td colspan="6">Brak dostępnych sal</td></tr>
+    <tr>
+      <td colspan="6">Brak dostępnych sal</td>
+    </tr>
     {% endfor %}
   </tbody>
 </table>
 <div class="pagination">
-{% if rooms.has_previous %}
+  {% if rooms.has_previous %}
   <a href="?page=1">&laquo Pierwsza</a>
   <a href="?page={{rooms.previous_page_number}}">Poprzednia</a>
-{% endif %}
-Strona {{rooms.number}} z {{rooms.paginator.num_pages}}
-{% if rooms.has_next %}
+  {% endif %}
+  Strona {{rooms.number}} z {{rooms.paginator.num_pages}}
+  {% if rooms.has_next %}
   <a href="?page={{rooms.next_page_number}}">Następna</a>
   <a href="?page={{rooms.paginator.num_pages}}">&raquo Ostatnia</a>
-{% endif %}
+  {% endif %}
 </div>
 <div class="card" id="card">
   <div class="card-body">
     <form action="/search" method="GET">
       <div class="form-group">
         <label for="room-name">Nazwa sali</label>
-        <input type="text" class="form-control" id="room-name" aria-describedby="room-name-help" placeholder="Nazwa sali" name="room-name">
+        <input type="text" class="form-control" id="room-name" aria-describedby="room-name-help"
+          placeholder="Nazwa sali" name="room-name">
       </div>
       <div class="form-group">
         <label for="capacity">Minimalna pojemność sali</label>
@@ -78,5 +81,5 @@ Strona {{rooms.number}} z {{rooms.paginator.num_pages}}
       <button type="submit" class="btn btn-primary">Szukaj</button>
     </form>
   </div>
-</div> 
+</div>
 {% endblock %}

@@ -7,6 +7,7 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 
+
 class RoomListView(View):
     def get(self, request):
         rooms_list = ConferenceRoom.objects.all()
@@ -143,9 +144,7 @@ class RoomReservationView(View):
                     "error": "Data jest z przeszłości!",
                 },
             )
-        Reservation.objects.create(
-            room_id_id=room_id, date=date, comment=comment
-        )
+        Reservation.objects.create(room_id_id=room_id, date=date, comment=comment)
 
         return redirect("room-list")
 

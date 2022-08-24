@@ -1,6 +1,15 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from Reservations.views import RoomListView, AddRoomView, DeleteRoomView, EditRoomView, RoomReservationView, RoomDetailsView, SearchView
+from Reservations.views import (
+    RoomListView,
+    AddRoomView,
+    DeleteRoomView,
+    EditRoomView,
+    RoomReservationView,
+    RoomDetailsView,
+    SearchView,
+)
+
 
 class TestUrls(SimpleTestCase):
     def test_room_list_url_resolves(self):

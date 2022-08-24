@@ -9,17 +9,17 @@
     <form action="" method="POST">
       {% csrf_token %}
       <div class="form-group">
-        <div class = "input-box">
-        <span class="details" >Nazwa sali</span>
-        <input type="text" placeholder="Nazwa sali" name="room_name">
+        <div class="input-box">
+          <span class="details">Nazwa sali</span>
+          <input type="text" placeholder="Nazwa sali" name="room_name">
         </div>
       </div>
       <div class="form-group">
-        <span class="details" >Pojemność</span>
+        <span class="details">Pojemność</span>
         <input type="number" step="1" placeholder="0" name="capacity">
       </div>
       <div class="form-group">
-        <span class="details" >Dostępność rzutnika</span>
+        <span class="details">Dostępność rzutnika</span>
         <input type="checkbox" name="projector">
       </div>
       <button type="submit" class="btn btn-primary">Dodaj salę</button>

@@ -8,29 +8,50 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='ConferenceRoom',
+            name="ConferenceRoom",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255, unique=True)),
-                ('capacity', models.PositiveIntegerField()),
-                ('has_projector', models.BooleanField(default=False)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255, unique=True)),
+                ("capacity", models.PositiveIntegerField()),
+                ("has_projector", models.BooleanField(default=False)),
             ],
         ),
         migrations.CreateModel(
-            name='Reservation',
+            name="Reservation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('date', models.DateField()),
-                ('comment', models.TextField(null=True)),
-                ('room_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Reservations.conferenceroom')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("date", models.DateField()),
+                ("comment", models.TextField(null=True)),
+                (
+                    "room_id",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="Reservations.conferenceroom",
+                    ),
+                ),
             ],
             options={
-                'unique_together': {('room_id', 'date')},
+                "unique_together": {("room_id", "date")},
             },
         ),
     ]

@@ -5,42 +5,46 @@
 
 }
 
-body{
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(background.png);
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(background.png);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
 
-.container{
+.container {
     width: 100%;
     height: 100vh;
     box-sizing: border-box;
 
-    
+
 }
 
-.navbar{
+.navbar {
     height: 12%;
     display: flex;
     align-items: center;
 }
-nav{
+
+nav {
     flex: 1;
     text-align: right;
     padding-right: 8%;
 }
-nav ul li{
+
+nav ul li {
     list-style: none;
     display: inline-block;
     margin-left: 60px;
 }
-nav ul li a{
+
+nav ul li a {
     text-decoration: none;
     color: #fff;
     font-size: 22px;
 }
+
 .footer {
     position: fixed;
     bottom: 0;
@@ -53,7 +57,7 @@ nav ul li a{
 }
 
 .card {
-    box-shadow: 24px 24px 80px rgba(0,0,0,0.9);
+    box-shadow: 24px 24px 80px rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: left;
     color: black;
@@ -64,9 +68,11 @@ nav ul li a{
     border-bottom: 5px solid black;
     margin-bottom: 40px;
 }
-.title{
+
+.title {
     font-size: 42px;
 }
+
 button {
     background-color: white;
     border: none;
@@ -78,11 +84,13 @@ button {
     font-size: 16px;
     border-radius: 12px;
 }
-.input-box input{
+
+.input-box input {
     height: 25px;
     width: 100%;
     display: block;
 }
+
 .alert {
     border: 1px solid;
     margin: 10px 0px;
@@ -93,53 +101,62 @@ button {
     background-color: #FFBABA;
     background-image: url('https://i.imgur.com/GnyDvKN.png');
 }
-.table{
+
+.table {
     border-collapse: collapse;
     margin: 25px 0px;
     font-size: 25px;
     background-color: white;
     min-width: 100%;
-    box-shadow: 24px 24px 80px rgba(0,0,0,0.9);
+    box-shadow: 24px 24px 80px rgba(0, 0, 0, 0.9);
     opacity: 0.8;
     text-align: left;
     overflow: scroll;
     height: 200px;
 
 }
+
 .headers {
     background-color: Cornsilk;
     color: black;
     text-align: left;
 }
-.table th, table tr{
+
+.table th,
+table tr {
     padding-top: 15px;
     padding-bottom: 15px;
 }
-.table tbody tr{
+
+.table tbody tr {
     border-bottom: 1px solid #dddddd;
 }
-.table tbody tr:nth-of-type(even){
+
+.table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
     text-align: left;
 }
-.table tbody tr:last-of-type{
+
+.table tbody tr:last-of-type {
     border-bottom: 5px solid Cornsilk;
 }
+
 textarea {
-  width: 500px;
-  height: 150px;
+    width: 500px;
+    height: 150px;
 }
 
-.pagetitle{
+.pagetitle {
     font-size: 40px;
     text-align: left;
 }
 
-.pagination{
+.pagination {
     font-size: 30px;
     color: white;
 }
-.pagination a{
+
+.pagination a {
     font-size: 30px;
     color: white;
     text-decoration: none;
